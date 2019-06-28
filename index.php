@@ -9,7 +9,7 @@ $typedPassword = $_POST["password"];
 $_SESSION["logged"];
 
 
-include 'header.php';
+include 'src/header.php';
 
 if ( isset($_GET['signOff'])) { 
   $_SESSION["logged"] = false; 
@@ -18,14 +18,14 @@ if ( isset($_GET['signOff'])) {
 if ( ($password == $typedPassword) || $_SESSION["logged"] == true ) { 
     
   $_SESSION["logged"] = true;
-    include 'content.php';
+    include 'src/content.php';
 
   } else {      
   
-    include 'login.php';
+    include 'src/login.php';
   
   } 
       
-include 'footer.php';
+include 'src/footer.php';
       
 ?>
