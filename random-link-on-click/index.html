@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Link</title>
+<body>
+  
+    <a id="random" href="" target="_blank"><h1>Click Here</h1></a>
+
+</body>
+<script>
+
+let links = [
+    "https://www.youtube.com/watch?v=yWkq7btSQvs",
+    "https://www.youtube.com/watch?v=bEfpZYYX9p8",
+    "https://www.youtube.com/watch?v=EH-z9gE2uGY",
+    "https://www.youtube.com/watch?v=EpLjPCBaq-0",
+    "https://www.youtube.com/watch?v=OuHaZDgBreM"
+    ]    
+
+let queue_links = [];
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+function fillQueue(queue, array){
+    for (let link of array) {
+        queue.push(link);
+      }
+    shuffle(queue);
+}
+
+fillQueue(queue_links, links);
+
+document.addEventListener("click", function(){
+    if(queue_links.length === 0){
+        fillQueue(queue_links, links);
+    }
+    document.getElementById("random").setAttribute("href", queue_links.shift());
+});
+
+</script>
+</html>
