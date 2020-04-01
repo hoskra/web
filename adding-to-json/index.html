@@ -18,17 +18,19 @@
 </body>
 <script>
 
-    $.getJSON('admin/databaze.json',function(data){
-        console.log(data);
+$.getJSON('admin/databaze.json',function(data){
+    display(data);
+});
 
-        var output = '<ul>';
-        $.each(data, function(key,val){
-            output += '<li>'+ val.url +'</li>';
-        });
-        output += '</ul>';
-
-        $('.default').html(output);
+function display(data)
+{
+    var output = '<ul>';
+    $.each(data, function(key,val){
+        output += '<li>'+ val.url +'</li>';
     });
+    output += '</ul>';
 
+    $('.default').html(output);
+}
 </script>
 </html>
